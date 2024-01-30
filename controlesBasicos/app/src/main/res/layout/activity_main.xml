@@ -16,6 +16,7 @@
 
     <EditText
         android:id="@+id/txtnum1"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lblnum1"
@@ -35,11 +36,21 @@
 
     <EditText
         android:id="@+id/txtnum2"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtnum1"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="20dp"/>
+
+    <Spinner
+        android:id="@+id/spnOpciones"
+        android:entries="@array/spnopciones"
+        android:layout_below="@+id/txtnum2"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btnCalcular"
@@ -86,6 +97,27 @@
             android:text="DIVISION"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <RadioButton
+            android:id="@+id/optExponenciacion"
+            android:text="EXPONENCIACION"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <RadioButton
+            android:id="@+id/optPorcentaje"
+            android:text="PORCENTAJE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <RadioButton
+            android:id="@+id/optFactorial"
+            android:text="FACTORIAL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <RadioButton
+            android:id="@+id/optRaiz"
+            android:text="RAIZ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </RadioGroup>
 
 
