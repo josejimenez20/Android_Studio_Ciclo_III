@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                                 resp = Math.pow(num1,1/num2);
                                 break;
                             case 6:
-                                resp = num1*num1/100;
+                                resp = num1*num2/100;
                                 break;
                             case 7:
                                 resp = 1;
