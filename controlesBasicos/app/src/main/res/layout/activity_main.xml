@@ -97,27 +97,6 @@
             android:text="DIVISION"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-        <RadioButton
-            android:id="@+id/optExponenciacion"
-            android:text="EXPONENCIACION"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <RadioButton
-            android:id="@+id/optPorcentaje"
-            android:text="PORCENTAJE"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <RadioButton
-            android:id="@+id/optFactorial"
-            android:text="FACTORIAL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <RadioButton
-            android:id="@+id/optRaiz"
-            android:text="RAIZ"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
     </RadioGroup>
 
 

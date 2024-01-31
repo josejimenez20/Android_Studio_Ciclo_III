@@ -61,13 +61,22 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             case 3:
                                 resp = num1/num2;
-                            case 4:
-                                // Elevar 5 al cuadrado para el caso 4
-                                resp = num1 * num2;
-                            case 5:
-                                // Calcular el 10%
-                                resp = num1 + num2 * 0.10;
                                 break;
+                            case 4:
+                                resp = Math.pow(num1,num2);
+                                break;
+                            case 5:
+                                resp = Math.pow(num1,1/num2);
+                                break;
+                            case 6:
+                                resp = num1*num1/100;
+                                break;
+                            case 7:
+                                resp = 1;
+                                for (int y=(int)num1;y>1;y--){
+                                    resp*=y;
+                                }
+
                         }
                         tempVal = findViewById(R.id.lblrespuesta);
                         tempVal.setText("Suma: " + resp );
