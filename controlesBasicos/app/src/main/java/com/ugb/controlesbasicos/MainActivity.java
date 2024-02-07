@@ -62,21 +62,21 @@ public class MainActivity extends AppCompatActivity {
                             case 3:
                                 resp = num1/num2;
                                 break;
-                            case 4:
-                                resp = Math.pow(num1,num2);
+                            case 4: //Exponenciacion
+                                resp = Math.pow(num1, num2);
                                 break;
-                            case 5:
-                                resp = Math.pow(num1,1/num2);
+                            case 5: //Porcentaje
+                                resp = (num1 * num2 / 100);
                                 break;
-                            case 6:
-                                resp = num1*num1/100;
+                            case 6: //Raiz
+                                resp = Math.sqrt(num1);
                                 break;
-                            case 7:
+                            case 7: //Factorial
                                 resp = 1;
-                                for (int y=(int)num1;y>1;y--){
-                                    resp*=y;
+                                for (int t=1;t<=num1;t++){
+                                    resp*=t;
                                 }
-
+                                break;
                         }
                         tempVal = findViewById(R.id.lblrespuesta);
                         tempVal.setText("Suma: " + resp );

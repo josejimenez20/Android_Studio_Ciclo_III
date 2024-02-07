@@ -8,7 +8,7 @@
         <item>Division</item>
         <item>Exponenciacion</item>
         <item>Porcentaje</item>
-        <item>Factorial</item>
         <item>Raiz</item>
+        <item>Factorial</item>
     </string-array>
 </resources>
