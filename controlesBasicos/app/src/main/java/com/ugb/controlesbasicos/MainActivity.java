@@ -26,10 +26,14 @@ public class MainActivity extends AppCompatActivity {
         tbh = findViewById(R.id.tbhConversores);
         tbh.setup();
 
-        tbh.addTab(tbh.newTabSpec("LONGITUD").setContent(R.id.tabLongitud).setIndicator("LONGITUD", null));
-        tbh.addTab(tbh.newTabSpec("ALMACENAMIENTO").setContent(R.id.tabAlmacenamiento).setIndicator("ALMACENAMIENTO", null));
-        tbh.addTab(tbh.newTabSpec("MONEDAS").setContent(R.id.tabMonedas).setIndicator("MONEDAS",null));
-        tbh.addTab(tbh.newTabSpec("Masa").setContent(R.id.tabMasa).setIndicator("Masa",null));
+        tbh.addTab(tbh.newTabSpec("LONGITUD").setContent(R.id.tabLongitud).setIndicator("LONGITUD"));
+        tbh.addTab(tbh.newTabSpec("ALMACENAMIENTO").setContent(R.id.tabAlmacenamiento).setIndicator("ALMACENAMIENTO"));
+        tbh.addTab(tbh.newTabSpec("MONEDAS").setContent(R.id.tabMonedas).setIndicator("MONEDAS"));
+        tbh.addTab(tbh.newTabSpec("MASA").setContent(R.id.tabMasa).setIndicator("Masa"));
+        tbh.addTab(tbh.newTabSpec("VOLUMEN").setContent(R.id.tabVolumen).setIndicator("Volumen"));
+        tbh.addTab(tbh.newTabSpec("TIEMPO").setContent(R.id.tabTiempo).setIndicator("Tiempo"));
+        tbh.addTab(tbh.newTabSpec("transferencia").setIndicator("TRANSFERENCIA DE DATOS").setContent(R.id.tabTransferencia));
+
         btn = findViewById(R.id.btnLongitudConvertir);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,8 +87,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Respuesta: "+
                         resp, Toast.LENGTH_LONG).show();
             }
-
-
         });
         //Masa
         btn = findViewById(R.id.btnMasaConvertir);
@@ -106,6 +108,67 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+        //Volumen
+        btn = findViewById(R.id.btnVolumenConvertir);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spn = findViewById(R.id.spnVolumenDe);
+                int de = spn.getSelectedItemPosition();
+
+                spn = findViewById(R.id.spnVolumenA);
+                int a = spn.getSelectedItemPosition();
+
+                tempVal = findViewById(R.id.txtVolumen);
+                double cantidad = Double.parseDouble(tempVal.getText().toString());
+
+                double resp = objConversor.convertir(4, de, a, cantidad);
+                Toast.makeText(getApplicationContext(),"Respuesta: "+
+                        resp, Toast.LENGTH_LONG).show();
+            }
+
+        });
+        btn = findViewById(R.id.btnTiempoConvertir);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spn = findViewById(R.id.spnTiempoDe);
+                int de = spn.getSelectedItemPosition();
+
+                spn = findViewById(R.id.spnTiempoA);
+                int a = spn.getSelectedItemPosition();
+
+                tempVal = findViewById(R.id.txtTiempoCantidad);
+                double cantidad = Double.parseDouble(tempVal.getText().toString());
+
+                double resp = objConversor.convertir(5, de, a, cantidad);
+                Toast.makeText(getApplicationContext(),"Respuesta: "+
+                        resp, Toast.LENGTH_LONG).show();
+            }
+
+        });
+        btn = findViewById(R.id.btnTransferenciaConvertir);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spn = findViewById(R.id.spnTransferenciaDe);
+                int de = spn.getSelectedItemPosition();
+
+                spn = findViewById(R.id.spnTransferenciaA);
+                int a = spn.getSelectedItemPosition();
+
+                tempVal = findViewById(R.id.txtTransferencia);
+                double cantidad = Double.parseDouble(tempVal.getText().toString());
+
+                double resp = objConversor.convertir(6, de, a, cantidad);
+                Toast.makeText(getApplicationContext(),"Respuesta: "+
+                        resp, Toast.LENGTH_LONG).show();
+            }
+
+        });
+
+
+
 
     }
 }

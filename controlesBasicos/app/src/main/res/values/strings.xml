@@ -48,18 +48,18 @@
         <item>Colon salvadoreño</item>
     </string-array>
 
-        <string-array name="spnMasa">
-            <item>Libra</item>
-            <item>Kilogramo</item>
-            <item>Gramo</item>
-            <item>Tonelada</item>
-            <item>Miligramo</item>
-            <item>Microgramo</item>
-            <item>Tonelada_larga</item>
-            <item>Tonelada_corta</item>
-            <item>Stone</item>
-            <item>Onza</item>
-        </string-array>
+    <string-array name="spnMasa">
+        <item>Libra</item>
+        <item>Kilogramo</item>
+        <item>Gramo</item>
+        <item>Tonelada</item>
+        <item>Miligramo</item>
+        <item>Microgramo</item>
+        <item>Tonelada_larga</item>
+        <item>Tonelada_corta</item>
+        <item>Stone</item>
+        <item>Onza</item>
+    </string-array>
 
     <string-array name="spnVolumen">
         <item>Litro</item>
@@ -74,7 +74,32 @@
         <item>Mililitro</item>
     </string-array>
 
+    <string-array name="spnTiempo">
+        <item>Minuto</item>
+        <item>Segundo</item>
+        <item>Hora</item>
+        <item>Dia</item>
+        <item>Semana</item>
+        <item>Mes</item>
+        <item>Año</item>
+        <item>Decada</item>
+        <item>Siglo</item>
+        <item>Milisegundo</item>
+    </string-array>
 
-
-
+    <string-array name="spnTransferencia">
+        <item>MegaByte x segundo</item>
+        <item>MegaBit x segundo</item>
+        <item>MebiBit x segundo</item>
+        <item>Bit x segundo</item>
+        <item>KiloBit x segundo</item>
+        <item>KiloByte x segundo</item>
+        <item>KibiBit x segundo</item>
+        <item>GigaBit x segundo</item>
+        <item>GigaByte x segundo</item>
+        <item>GibiBit x segundo</item>
+        <item>TeraBit x segundo</item>
+        <item>TeraByte x segundo</item>
+        <item>TebiBit x segundo</item>
+         </string-array>
 </resources>
