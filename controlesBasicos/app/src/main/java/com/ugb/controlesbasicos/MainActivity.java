@@ -83,19 +83,50 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Respuesta: "+
                         resp, Toast.LENGTH_LONG).show();
             }
+
+
         });
+        //Masa
+        btn = findViewById(R.id.btnMasaConvertir);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spn = findViewById(R.id.spnMasaDe);
+                int de = spn.getSelectedItemPosition();
+
+                spn = findViewById(R.id.spnMasaA);
+                int a = spn.getSelectedItemPosition();
+
+                tempVal = findViewById(R.id.txtMasa);
+                double cantidad = Double.parseDouble(tempVal.getText().toString());
+
+                double resp = objConversor.convertir(3, de, a, cantidad);
+                Toast.makeText(getApplicationContext(),"Respuesta: "+
+                        resp, Toast.LENGTH_LONG).show();
+            }
+
+        });
+
     }
 }
 class conversores{
     double[][] valores = {
-            //LONGITUD
+            //Longitud Listo
             {1, 100, 39.3701, 3.280841666667, 1.193, 1.0936138888889999077, 0.001, 0.000621371, 0.001, 0.000001, 0.000000001},
 
-            //Almacenamiento
+            //Almacenamiento Listo
             {1, 8, 1000*8, Math.pow(1000,2)*8, Math.pow(1000,3)*8, Math.pow(1000,4)*8, Math.pow(1000,5)*8,Math.pow(1000,6)*8,Math.pow(1000,7)*8,
                     1024*8, Math.pow(1024,2)*8, Math.pow(1024,3)*8, Math.pow(1024,4)*8, Math.pow(1024,5)*8,Math.pow(1024,6)*8,Math.pow(1024,7)*8,},
-            //Monedas
+            //Monedas Listo
             {1,0.93,7.81,17.14,149.27,0.79,24.73,36.78,1.35,3946.75,965.92,830.67,8.76},
+            //Masa Listo
+            {1, 0.453592, 453.592, 0.000453592, 453592, 453600000, 0.000446429, 0.0005, 0.0714286, 16},
+            //Volumen
+            {1, 0.264172, 1.05669, 2.11338, 4.16667, 33.814, 67.628, 202.884, 0.001, 1000},
+            //Tiempo
+            {1, 60, 0.0166667, 0.000694444, 0.000099206, 0.000022831, 0.0000019026, 0.00000019026, 0.00000001903, 60000},
+            //Transferencia de datos
+            {1, 8, 7.62939, 8e+6, 8000, 1000, 7812.5, 0.008, 0.001, 0.00745058, 8e-6, 1e-6, 7.276e-6}
     };
     public double convertir(int opcion, int de, int a, double cantidad){
         return valores[opcion][a] / valores[opcion][de] * cantidad;

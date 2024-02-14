@@ -13,6 +13,7 @@
         <item>Micrometros</item>
         <item>Nanometros</item>
     </string-array>
+
     <string-array name="spnAlmacenamiento">
         <item>Bit</item>
         <item>Byte</item>
@@ -31,6 +32,7 @@
         <item>EiB</item>
         <item>ZiB</item>
     </string-array>
+
     <string-array name="spnMonedas">
         <item>Dolar</item>
         <item>Euro</item>
@@ -45,8 +47,34 @@
         <item>Peso argentino</item>
         <item>Colon salvadoreño</item>
     </string-array>
-    <string-array name="spnMasa">
 
+        <string-array name="spnMasa">
+            <item>Libra</item>
+            <item>Kilogramo</item>
+            <item>Gramo</item>
+            <item>Tonelada</item>
+            <item>Miligramo</item>
+            <item>Microgramo</item>
+            <item>Tonelada_larga</item>
+            <item>Tonelada_corta</item>
+            <item>Stone</item>
+            <item>Onza</item>
+        </string-array>
+
+    <string-array name="spnVolumen">
+        <item>Litro</item>
+        <item>Galon_usa</item>
+        <item>Cuarto_usa</item>
+        <item>Pinta_usa</item>
+        <item>Taza_usa</item>
+        <item>Onza_liquida_usa</item>
+        <item>Cucharada_usa</item>
+        <item>Cucharadita_usa</item>
+        <item>Metro_cubico</item>
+        <item>Mililitro</item>
     </string-array>
+
+
+
 
 </resources>
