@@ -1,105 +1,12 @@
 <resources>
-    <string name="app_name">Conversores</string>
-    <string-array name="spnLongitud">
-        <item>Metros</item>
-        <item>Centimetros</item>
-        <item>Pulgadas</item>
-        <item>Pies</item>
-        <item>Varas</item>
-        <item>Yardas</item>
-        <item>Kilometros</item>
-        <item>Millas</item>
-        <item>Millinetros</item>
-        <item>Micrometros</item>
-        <item>Nanometros</item>
+    <string name="app_name">Parcial_1</string>
+    <string-array name="spnArea">
+        <item>Pie Cuadrado</item>
+        <item>Vara Cuadrada</item>
+        <item>Yarda Cuadrada</item>
+        <item>Metro Cuadrado</item>
+        <item>Tareas</item>
+        <item>Manzana</item>
+        <item>Hectarias</item>
     </string-array>
-
-    <string-array name="spnAlmacenamiento">
-        <item>Bit</item>
-        <item>Byte</item>
-        <item>KB</item>
-        <item>MB</item>
-        <item>GB</item>
-        <item>TB</item>
-        <item>PB</item>
-        <item>EB</item>
-        <item>ZB</item>
-        <item>KiB</item>
-        <item>MiB</item>
-        <item>GiB</item>
-        <item>TiB</item>
-        <item>PiB</item>
-        <item>EiB</item>
-        <item>ZiB</item>
-    </string-array>
-
-    <string-array name="spnMonedas">
-        <item>Dolar</item>
-        <item>Euro</item>
-        <item>Quetzal</item>
-        <item>Peso mexicano</item>
-        <item>Libra esterlina</item>
-        <item>Lempira</item>
-        <item>Córdoba</item>
-        <item>Dolar canadiense</item>
-        <item>Peso colombiano</item>
-        <item>Peso chileno</item>
-        <item>Peso argentino</item>
-        <item>Colon salvadoreño</item>
-    </string-array>
-
-    <string-array name="spnMasa">
-        <item>Libra</item>
-        <item>Kilogramo</item>
-        <item>Gramo</item>
-        <item>Tonelada</item>
-        <item>Miligramo</item>
-        <item>Microgramo</item>
-        <item>Tonelada_larga</item>
-        <item>Tonelada_corta</item>
-        <item>Stone</item>
-        <item>Onza</item>
-    </string-array>
-
-    <string-array name="spnVolumen">
-        <item>Litro</item>
-        <item>Galon_usa</item>
-        <item>Cuarto_usa</item>
-        <item>Pinta_usa</item>
-        <item>Taza_usa</item>
-        <item>Onza_liquida_usa</item>
-        <item>Cucharada_usa</item>
-        <item>Cucharadita_usa</item>
-        <item>Metro_cubico</item>
-        <item>Mililitro</item>
-    </string-array>
-
-    <string-array name="spnTiempo">
-        <item>Minuto</item>
-        <item>Segundo</item>
-        <item>Hora</item>
-        <item>Dia</item>
-        <item>Semana</item>
-        <item>Mes</item>
-        <item>Año</item>
-        <item>Decada</item>
-        <item>Siglo</item>
-        <item>Milisegundo</item>
-    </string-array>
-
-    <string-array name="spnTransferencia">
-        <item>MegaByte x segundo</item>
-        <item>MegaBit x segundo</item>
-        <item>MebiBit x segundo</item>
-        <item>Bit x segundo</item>
-        <item>KiloBit x segundo</item>
-        <item>KiloByte x segundo</item>
-        <item>KibiBit x segundo</item>
-        <item>GigaBit x segundo</item>
-        <item>GigaByte x segundo</item>
-        <item>GibiBit x segundo</item>
-        <item>TeraBit x segundo</item>
-        <item>TeraByte x segundo</item>
-        <item>TebiBit x segundo</item>
-         </string-array>
 </resources>
