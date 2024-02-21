@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +25,23 @@ public class MainActivity extends AppCompatActivity {
 
         tbh.addTab(tbh.newTabSpec("Metros").setContent(R.id.tabMetros).setIndicator("Metros", null));
         tbh.addTab(tbh.newTabSpec("Area").setContent(R.id.tabConversor).setIndicator("Area", null));
+
+        btn = findViewById(R.id.btnAreaConvertir);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spn = findViewById(R.id.spnAreaDe);
+                int de = spn.getSelectedItemPosition();
+
+                spn = findViewById(R.id.spnAreaA);
+                int a = spn.getSelectedItemPosition();
+
+                tempVal = findViewById(R.id.txtAreaCantidad);
+                double cantidad = Double.parseDouble(tempVal.getText().toString());
+
+                double resp = objConversor.convertir(0, de, a, cantidad);
+                Toast.makeText(getApplicationContext(),"Respuesta: "+
+                        resp, Toast.LENGTH_LONG).show();
 
 
         btn = findViewById(R.id.btnMetrosConvertir);
