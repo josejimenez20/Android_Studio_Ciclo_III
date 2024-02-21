@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btn;
     Spinner spn;
-
+    conversores objConversor = new conversores();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
