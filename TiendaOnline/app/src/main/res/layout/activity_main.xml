@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/txtcodigo"
+        android:layout_marginTop="40dp"
+        android:hint="Codigo"
+        android:inputType="number"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/txtdescripcion"
+        android:layout_marginTop="40dp"
+        android:hint="Descripcion"
+        android:layout_below="@id/txtcodigo"
+        android:inputType="text"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/txtmarca"
+        android:layout_marginTop="40dp"
+        android:hint="Marca"
+        android:inputType="text"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_below="@id/txtdescripcion"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/txtpresentacion"
+        android:layout_marginTop="40dp"
+        android:hint="Presentacion"
+        android:inputType="text"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_below="@id/txtmarca"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/txtprecio"
+        android:layout_marginTop="40dp"
+        android:hint="Precio"
+        android:inputType="numberDecimal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/txtpresentacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnGuardarProductos"
+        android:text="GUARDAR PRODUCTO"
+        android:layout_below="@id/txtprecio"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnRegresarListaProductos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:src="@android:drawable/ic_menu_revert" />
+
+</RelativeLayout>
