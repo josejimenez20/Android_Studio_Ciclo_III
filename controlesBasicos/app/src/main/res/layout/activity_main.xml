@@ -7,58 +7,58 @@
     tools:context=".MainActivity">
 
 <EditText
-    android:id="@+id/txtnombre"
+    android:id="@+id/txtcodigo"
     android:layout_marginTop="40dp"
-    android:hint="Nombre"
-    android:inputType="textPersonName"
+    android:hint="Codigo"
+    android:inputType="number"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
     <EditText
-        android:id="@+id/txtdireccion"
+        android:id="@+id/txtdescripcion"
         android:layout_marginTop="40dp"
-        android:hint="Direccion"
-        android:layout_below="@id/txtnombre"
-        android:inputType="textMultiLine"
+        android:hint="Descripcion"
+        android:layout_below="@id/txtcodigo"
+        android:inputType="text"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
-        android:id="@+id/txtTelefono"
+        android:id="@+id/txtmarca"
         android:layout_marginTop="40dp"
-        android:hint="Telefono"
-        android:inputType="phone"
+        android:hint="Marca"
+        android:inputType="text"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
-        android:layout_below="@id/txtdireccion"
+        android:layout_below="@id/txtdescripcion"
         android:layout_height="wrap_content"/>
     <EditText
-        android:id="@+id/txtemail"
+        android:id="@+id/txtpresentacion"
         android:layout_marginTop="40dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
+        android:hint="Presentacion"
+        android:inputType="text"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
-        android:layout_below="@id/txtTelefono"
+        android:layout_below="@id/txtmarca"
         android:layout_height="wrap_content"/>
     <EditText
-        android:id="@+id/txtdui"
+        android:id="@+id/txtprecio"
         android:layout_marginTop="40dp"
-        android:hint="DUI"
+        android:hint="Precio"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_below="@id/txtemail"
+        android:layout_below="@id/txtpresentacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btnGuardarAmigos"
-        android:text="GUARDAR AMIGO"
-        android:layout_below="@id/txtdui"
+        android:text="GUARDAR PRODUCTOS"
+        android:layout_below="@id/txtprecio"
         android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
