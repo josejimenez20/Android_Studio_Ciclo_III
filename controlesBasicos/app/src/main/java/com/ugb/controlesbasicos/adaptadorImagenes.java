@@ -12,25 +12,25 @@ import java.util.ArrayList;
 
 public class adaptadorImagenes extends BaseAdapter {
     Context context;
-    ArrayList<amigos> datosAmigosArrayList;
-    amigos misAmigos;
+    ArrayList<producto> datosProductoArrayList;
+    producto misProducto;
     LayoutInflater layoutInflater;
 
-    public adaptadorImagenes(Context context, ArrayList<amigos> datosAmigosArrayList) {
+    public adaptadorImagenes(Context context, ArrayList<producto> datosProductoArrayList) {
         this.context = context;
-        this.datosAmigosArrayList = datosAmigosArrayList;
+        this.datosProductoArrayList = datosProductoArrayList;
     }
     @Override
     public int getCount() {
-        return datosAmigosArrayList.size();
+        return datosProductoArrayList.size();
     }
     @Override
     public Object getItem(int i) {
-        return datosAmigosArrayList.get(i);
+        return datosProductoArrayList.get(i);
     }
     @Override
     public long getItemId(int i) {
-        return Long.parseLong(datosAmigosArrayList.get(i).getIdAmigo());
+        return Long.parseLong(datosProductoArrayList.get(i).getIdAmigo());
     }
 
     @Override
@@ -38,16 +38,16 @@ public class adaptadorImagenes extends BaseAdapter {
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View itemView = layoutInflater.inflate(R.layout.listview_imagenes, viewGroup, false);
         try{
-            misAmigos = datosAmigosArrayList.get(i);
+            misProducto = datosProductoArrayList.get(i);
 
-            TextView tempVal = itemView.findViewById(R.id.lblNombre);
-            tempVal.setText(misAmigos.getNombre());
+            TextView tempVal = itemView.findViewById(R.id.lblCodigo);
+            tempVal.setText(misProducto.getCodigo());
 
-            tempVal = itemView.findViewById(R.id.lblTelefono);
-            tempVal.setText(misAmigos.getTelefono());
+            tempVal = itemView.findViewById(R.id.lblMarca);
+            tempVal.setText(misProducto.getMarca());
 
-            tempVal = itemView.findViewById(R.id.lblEmail);
-            tempVal.setText(misAmigos.getEmail());
+            tempVal = itemView.findViewById(R.id.lblPresentacion);
+            tempVal.setText(misProducto.getPresentacion());
 
         }catch (Exception e){
             Toast.makeText(context, "Error al mostrar datos: "+e.getMessage(), Toast.LENGTH_LONG).show();

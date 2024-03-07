@@ -6,65 +6,91 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<EditText
-    android:id="@+id/txtnombre"
-    android:layout_marginTop="40dp"
-    android:hint="Nombre"
-    android:inputType="textPersonName"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/txt_Texto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Agregar Productos"
+        android:textAlignment="textStart"
+        android:textColor="#673AB7"
+        android:textSize="34sp"
+        android:textStyle="bold|italic"
+        app:drawableStartCompat="@android:drawable/presence_invisible" />
+
     <EditText
-        android:id="@+id/txtdireccion"
-        android:layout_marginTop="40dp"
-        android:hint="Direccion"
-        android:layout_below="@id/txtnombre"
-        android:inputType="textMultiLine"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:id="@+id/txtcodigo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="10dp"
+        android:hint="Codigo"
+        android:inputType="number"
+        android:textStyle="bold|italic" />
+
     <EditText
-        android:id="@+id/txtTelefono"
-        android:layout_marginTop="40dp"
-        android:hint="Telefono"
-        android:inputType="phone"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:id="@+id/txtdescripcion"
         android:layout_width="match_parent"
-        android:layout_below="@id/txtdireccion"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtcodigo"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:hint="Descripcion"
+        android:inputType="text"
+        android:textStyle="bold|italic" />
+
     <EditText
-        android:id="@+id/txtemail"
-        android:layout_marginTop="40dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:id="@+id/txtmarca"
         android:layout_width="match_parent"
-        android:layout_below="@id/txtTelefono"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtdescripcion"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:hint="Marca"
+        android:inputType="text"
+        android:textStyle="bold|italic" />
+
     <EditText
-        android:id="@+id/txtdui"
-        android:layout_marginTop="40dp"
-        android:hint="DUI"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_below="@id/txtemail"
+        android:id="@+id/txtpresentacion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtmarca"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:hint="Presentacion"
+        android:inputType="text"
+        android:textStyle="bold|italic" />
+
+    <EditText
+        android:id="@+id/txtprecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtpresentacion"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:hint="Precio"
+        android:textStyle="bold|italic" />
 
     <Button
-        android:id="@+id/btnGuardarAmigos"
-        android:text="GUARDAR AMIGO"
-        android:layout_below="@id/txtdui"
-        android:layout_marginTop="40dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:id="@+id/btnGuardarProducto"
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtprecio"
+        android:layout_marginTop="50dp"
+        android:text="Guardar Productos"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textStyle="bold|italic"
+        app:icon="@android:drawable/ic_menu_save" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnRegresarListaAmigos"
+        android:id="@+id/btnRegresarListaProductos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
