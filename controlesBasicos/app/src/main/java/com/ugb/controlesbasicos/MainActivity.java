@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnRegresar = findViewById(R.id.btnRegresarListaProductos);
+        btnRegresar = findViewById(R.id.btnRegresarListaProducto);
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

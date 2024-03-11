@@ -6,70 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<EditText
-    android:id="@+id/txtnombre"
-    android:layout_marginTop="40dp"
-    android:hint="Nombre"
-    android:inputType="textPersonName"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
     <EditText
-        android:id="@+id/txtdireccion"
-        android:layout_marginTop="40dp"
-        android:hint="Direccion"
-        android:layout_below="@id/txtnombre"
-        android:inputType="textMultiLine"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:id="@+id/txtcodigo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginRight="10dp"
+        android:hint="Codigo"
+        android:inputType="text" />
+
     <EditText
-        android:id="@+id/txtTelefono"
-        android:layout_marginTop="40dp"
-        android:hint="Telefono"
-        android:inputType="phone"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:id="@+id/txtdescripcion"
         android:layout_width="match_parent"
-        android:layout_below="@id/txtdireccion"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtcodigo"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:hint="Descripcion"
+        android:inputType="text" />
+
     <EditText
-        android:id="@+id/txtemail"
-        android:layout_marginTop="40dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:id="@+id/txtmarca"
         android:layout_width="match_parent"
-        android:layout_below="@id/txtTelefono"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtdescripcion"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:hint="Marca"
+        android:inputType="text" />
+
     <EditText
-        android:id="@+id/txtdui"
-        android:layout_marginTop="40dp"
-        android:hint="DUI"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_below="@id/txtemail"
+        android:id="@+id/txtpresentacion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtmarca"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:hint="Presentacion"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/txtprecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtpresentacion"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:hint="Precio" />
 
     <Button
-        android:id="@+id/btnGuardarAmigos"
-        android:text="GUARDAR AMIGO"
-        android:layout_below="@id/txtdui"
-        android:layout_marginTop="40dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:id="@+id/btnGuardarProducto"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtprecio"
+        android:layout_marginTop="30dp"
+        android:text="Guardar producto" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnRegresarListaAmigos"
+        android:id="@+id/btnRegresarListaProducto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:src="@android:drawable/ic_menu_revert" />
 
 </RelativeLayout>
