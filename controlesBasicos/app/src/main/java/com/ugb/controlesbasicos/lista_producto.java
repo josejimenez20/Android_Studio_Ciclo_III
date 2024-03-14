@@ -63,11 +63,12 @@ public class lista_producto extends AppCompatActivity {
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         try {
-            switch (item.getItemId()){
+            switch (item.getItemId()) {
                 case R.id.mnxAgregar:
                     parametros.putString("accion", "nuevo");
                     abrirActividad(parametros);
                     break;
+
                 case R.id.mnxModificar:
                     String producto[] = {
                             cProducto.getString(0), //idProducto
@@ -75,25 +76,57 @@ public class lista_producto extends AppCompatActivity {
                             cProducto.getString(2), //descripcion
                             cProducto.getString(3), //marca
                             cProducto.getString(4), //presentacion
-                            cProducto.getString(5) //precio
+                            cProducto.getString(5),//precio
+                            cProducto.getString(6) //foto
                     };
-                    parametros.putString("accion","modificar");
+                    parametros.putString("accion", "modificar");
                     parametros.putStringArray("producto", producto);
                     abrirActividad(parametros);
+                    break;
 
                 case R.id.mnxEliminar:
-                    final int c = 1;
-                    AlertDialog.Builder alerta = new AlertDialog.Builder(lista_producto.this);
-                    alerta.setMessage("Desea eliminiar el producto : ");
-                    alerta.setCancelable(false);
-
+                    eliminarProducto();
+                    break;
             }
+
             return true;
-        }catch (Exception e){
-            mostrarMsg("Error en menu: "+ e.getMessage());
+        } catch (Exception e) {
+            mostrarMsg("Error en menu: " + e.getMessage());
             return super.onContextItemSelected(item);
         }
     }
+    private void eliminarProducto(){
+        try {
+            AlertDialog.Builder confirmacion = new AlertDialog.Builder(lista_producto.this);
+            confirmacion.setTitle("Estas seguro de eliminar el producto: ");
+            confirmacion.setMessage(cProducto.getString(3));
+            confirmacion.setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    String respuesta = db_producto.administrar_Productos("eliminar", new String[]{cProducto.getString(0)});
+                    if (respuesta.equals("ok")) {
+                        mostrarMsg("Producto eliminado con exito.");
+                        obtenerProducto();
+                    } else {
+                        mostrarMsg("Error al producto amigo: " + respuesta);
+                    }
+                }
+            });
+            confirmacion.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            confirmacion.create().show();
+        }catch (Exception e){
+            mostrarMsg("Error al eliminar: "+ e.getMessage());
+        }
+    }
+
+
+
+
     private void abrirActividad(Bundle parametros){
         Intent abriVentana = new Intent(getApplicationContext(), MainActivity.class);
         abriVentana.putExtras(parametros);
@@ -105,7 +138,7 @@ public class lista_producto extends AppCompatActivity {
             alProductoCopy.clear();
 
             db_producto = new DB(lista_producto.this, "", null, 1);
-            cProducto = db_producto.consultar_producto();
+            cProducto = db_producto.consultar_Productos();
 
             if ( cProducto.moveToFirst() ){
                 lts = findViewById(R.id.ltsProducto);
@@ -116,7 +149,8 @@ public class lista_producto extends AppCompatActivity {
                             cProducto.getString(2),//descripcion
                             cProducto.getString(3),//marca
                             cProducto.getString(4),//presentacion
-                            cProducto.getString(5)//precio
+                            cProducto.getString(5),//precio
+                            cProducto.getString(6)//foto
                     );
                     alProducto.add(misProductos);
                 }while(cProducto.moveToNext());
@@ -152,16 +186,16 @@ public class lista_producto extends AppCompatActivity {
                     if( valor.length()<=0 ){
                         alProducto.addAll(alProductoCopy);
                     }else{
-                        for( producto producto : alProductoCopy ){
-                            String codigo = producto.getCodigo();
-                            String descripcion = producto.getDescripcion();
-                            String marca = producto.getMarca();
-                            String presentacion = producto.getPresentacion();
-                            if( codigo.toLowerCase().trim().contains(valor) ||
-                                descripcion.toLowerCase().trim().contains(valor) ||
+                        for( producto Producto : alProductoCopy ){
+                            String nombre = Producto.getMarca();
+                            String descripcion = Producto.getDescripcion();
+                            String marca = Producto.getMarca();
+                            String presentacion = Producto.getPresentacion();
+                            if( nombre.toLowerCase().trim().contains(valor) ||
+                                    descripcion.toLowerCase().trim().contains(valor) ||
                                     marca.trim().contains(valor) ||
                                     presentacion.trim().toLowerCase().contains(valor) ){
-                                alProducto.add(producto);
+                                alProducto.add(Producto);
                             }
                         }
                         adaptadorImagenes adImagenes = new adaptadorImagenes(getApplicationContext(), alProducto);
