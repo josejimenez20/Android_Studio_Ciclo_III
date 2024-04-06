@@ -118,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
                 mostrarMsg("Error al tomar la foto: "+ e.getMessage());
             }
 
-            mostrarMsg("No se selecciono una foto...");
         }
 
     private File crearImagenProduct() throws Exception{
