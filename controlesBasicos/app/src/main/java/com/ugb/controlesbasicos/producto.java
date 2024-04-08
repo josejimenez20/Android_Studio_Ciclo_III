@@ -11,7 +11,7 @@ public class producto {
     String marca;
     String presentacion;
     String precio;
-    String foto;
+    String urlcompletaFoto;
 
     public producto(String _id, String _rev, String idProducto, String codigo, String descripcion, String marca, String presentacion, String precio, String foto) {
         this._id = _id;
@@ -22,7 +22,7 @@ public class producto {
         this.marca = marca;
         this.presentacion = presentacion;
         this.precio = precio;
-        this.foto=foto;
+        this.urlcompletaFoto=foto;
     }
 
     public String getIdAmigo() {
@@ -74,11 +74,11 @@ public class producto {
     }
 
     public String getFoto() {
-        return foto;
+        return urlcompletaFoto;
     }
 
     public void setFoto(String foto) {
-        this.foto = foto;
+        this.urlcompletaFoto = foto;
     }
 
     public String get_id() {
