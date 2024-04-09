@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tempVal;
     Button btn;
     FloatingActionButton btnRegresar;
-    String accion="nuevo", id="", urlCompletaImg="", rev="", idProducto="";
+    String accion="nuevo", id="", urlfotoCompleta="", rev="", idProducto="";
     Intent tomarFotoIntent;
     ImageView img;
     utilidades utls;
@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         utls = new utilidades();
-
         img = findViewById(R.id.imgFoto);
         img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
                 tomarFotoProducto();
             }
         });
+        btnRegresar = findViewById(R.id.btnRegresarListaProducto);
+        btnRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                regresarListaProducto();
+            }
+        });
+
+
         btnRegresar = findViewById(R.id.btnRegresarListaProducto);
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     datosProductos.put("marca", marca);
                     datosProductos.put("presentacion", presentacion);
                     datosProductos.put("precio", precio);
-                    datosProductos.put("urlcompletaFoto", urlCompletaImg);
+                    datosProductos.put("urlfotoCompleta", urlfotoCompleta);
                     String respuesta = "";
 
                     enviarDatosServidor objGuardarDatosServidor = new enviarDatosServidor(getApplicationContext());
@@ -107,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     DB db = new DB(getApplicationContext(), "", null, 1);
-                    String[] datos = new String[]{id, rev, idProducto, codigo, descripcion, marca, presentacion, precio, urlCompletaImg};
+                    String[] datos = new String[]{id, rev, idProducto, codigo, descripcion, marca, presentacion, precio, urlfotoCompleta};
                     respuesta = db.administrar_Productos(accion, datos);
                     if (respuesta.equals("ok")) {
                         Toast.makeText(getApplicationContext(), "Producto Registrado con Exito.", Toast.LENGTH_SHORT).show();
@@ -128,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         try{
             if( requestCode==1 && resultCode==RESULT_OK ){
-                Bitmap imagenBitmap = BitmapFactory.decodeFile(urlCompletaImg);
+                Bitmap imagenBitmap = BitmapFactory.decodeFile(urlfotoCompleta);
                 img.setImageBitmap(imagenBitmap);
             }else{
                 mostrarMsg("Se cancelo la toma de la foto");
@@ -140,21 +148,23 @@ public class MainActivity extends AppCompatActivity {
     private void tomarFotoProducto(){
         tomarFotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //if( tomarFotoIntent.resolveActivity(getPackageManager())!=null ){
-            File fotoProducto = null;
-            try{
-                fotoProducto = crearImagenProducto();
-                if( fotoProducto!=null ){
-                    Uri uriFotoProducto = FileProvider.getUriForFile(MainActivity.this, "com.ugb.controlesbasicos.fileprovider", fotoProducto);
-                    tomarFotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, uriFotoProducto);
-                    startActivityForResult(tomarFotoIntent, 1);
-                }else{
-                    mostrarMsg("NO pude tomar la foto");
-                }
-            }catch (Exception e){
-                mostrarMsg("Error al tomar la foto: "+ e.getMessage());
+        File fotoProducto = null;
+        try{
+            fotoProducto = crearImagenProducto();
+            if( fotoProducto!=null ){
+                Uri uriFotoAmigo = FileProvider.getUriForFile(MainActivity.this, "com.ugb.controlesbasicos.fileprovider", fotoProducto);
+                tomarFotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, uriFotoAmigo);
+                startActivityForResult(tomarFotoIntent, 1);
+            }else{
+                mostrarMsg("NO pude tomar la foto");
             }
-
+        }catch (Exception e){
+            mostrarMsg("Error al tomar la foto: "+ e.getMessage());
         }
+        /*}else{
+            mostrarMsg("No se selecciono una foto...");
+        }*/
+    }
 
     private File crearImagenProduct() throws Exception{
         String fechaHoraMs = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -164,21 +174,19 @@ public class MainActivity extends AppCompatActivity {
             dirAlmacenamiento.mkdirs();
         }
         File image = File.createTempFile(fileName, ".jpg", dirAlmacenamiento);
-        urlCompletaImg = image.getAbsolutePath();
+        urlfotoCompleta = image.getAbsolutePath();
         return image;
     }
 
     private File crearImagenProducto() throws Exception{
-
         String fechaHoraMs = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String fileName = "imagen_"+ fechaHoraMs +"_";
         File dirAlmacenamiento = getExternalFilesDir(Environment.DIRECTORY_DCIM);
         if( !dirAlmacenamiento.exists() ){
             dirAlmacenamiento.mkdirs();
         }
-
         File image = File.createTempFile(fileName, ".jpg", dirAlmacenamiento);
-        urlCompletaImg = image.getAbsolutePath();
+        urlfotoCompleta = image.getAbsolutePath();
         return image;
     }
     private void mostrarMsg(String msg){
@@ -214,8 +222,8 @@ public class MainActivity extends AppCompatActivity {
                 tempVal = findViewById(R.id.txtprecio);
                 tempVal.setText(jsonObject.getString("precio"));
 
-                urlCompletaImg = jsonObject.getString("urlcompletaFoto");
-                Bitmap bitmap = BitmapFactory.decodeFile(urlCompletaImg);
+                urlfotoCompleta = jsonObject.getString("urlfotoCompleta");
+                Bitmap bitmap = BitmapFactory.decodeFile(urlfotoCompleta);
                 img.setImageBitmap(bitmap);
 
             }else{

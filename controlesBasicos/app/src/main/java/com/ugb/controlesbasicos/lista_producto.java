@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -48,6 +49,8 @@ public class lista_producto extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_producto);
+
+        db_producto = new DB(lista_producto.this, "", null, 1);
 
         btn = findViewById(R.id.btnAbrirNuevosProductos);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -104,10 +107,11 @@ public class lista_producto extends AppCompatActivity {
                     );
                     alProducto.add(misProductos);
                 }
-                alProducto.addAll(alProductoCopy);
 
                 adaptadorImagenes adImagenes = new adaptadorImagenes(getApplicationContext(), alProducto);
                 lts.setAdapter(adImagenes);
+
+                alProductoCopy.addAll(alProducto);
 
                 registerForContextMenu(lts);
             }else{
@@ -120,13 +124,14 @@ public class lista_producto extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        try {
+
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.mimenu, menu);
 
+        try{
             AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
             posicion = info.position;
-            menu.setHeaderTitle(datosJSON.getJSONObject(posicion).getJSONObject("value").getString("nombre"));//1 es el nombre del amigo
+            menu.setHeaderTitle(datosJSON.getJSONObject(posicion).getJSONObject("value").getString("nombre"));//1 es el nombre del producto
         }catch (Exception e){
             mostrarMsg("Error al mostrar el menu: "+ e.getMessage());
         }
@@ -157,17 +162,21 @@ public class lista_producto extends AppCompatActivity {
     private void eliminarProductos(){
         try {
             AlertDialog.Builder confirmacion = new AlertDialog.Builder(lista_producto.this);
-            confirmacion.setTitle("Esta seguro de Eliminar el producto: ");
-            confirmacion.setMessage(datosJSON.getJSONObject(posicion).getJSONObject("value").getString("nombre"));
+            confirmacion.setTitle("Esta seguro de Eliminar a: ");
+            confirmacion.setMessage(datosJSON.getJSONObject(posicion).getJSONObject("value").getString("codigo"));
             confirmacion.setPositiveButton("SI", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    String respuesta = db_producto.administrar_Productos("eliminar", new String[]{cProducto.getString(0)});
-                    if (respuesta.equals("ok")) {
-                        mostrarMsg("eliminado con exito.");
-                        obtenerProductos();
-                    } else {
-                        mostrarMsg("Error al eliminar : " + respuesta);
+                    try {
+                        String respuesta = db_producto.administrar_Productos("eliminar", new String[]{"", "", datosJSON.getJSONObject(posicion).getJSONObject("value").getString("idProducto")});
+                        if (respuesta.equals("ok")) {
+                            mostrarMsg("producto eliminado con exito.");
+                            obtenerProductos();
+                        } else {
+                            mostrarMsg("Error al eliminar producto: " + respuesta);
+                        }
+                    }catch (Exception e){
+                        mostrarMsg("Error al eliminar Datos: "+e.getMessage());
                     }
                 }
             });
@@ -189,7 +198,7 @@ public class lista_producto extends AppCompatActivity {
     }
     private void obtenerProductos(){
         try{
-            db_producto = new DB(lista_producto.this, "", null, 1);
+
             cProducto = db_producto.consultar_Productos();
             if ( cProducto.moveToFirst() ){
                 datosJSON = new JSONArray();
