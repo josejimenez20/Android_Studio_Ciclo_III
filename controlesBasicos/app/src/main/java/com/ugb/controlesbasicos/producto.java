@@ -5,82 +5,29 @@ import androidx.annotation.NonNull;
 public class producto {
     String _id;
     String _rev;
-    String idProducto;
-    String codigo;
+    String codigoProducto;
+    String nombre;
     String descripcion;
     String marca;
     String presentacion;
-    String precio;
-    String urlfotoCompleta;
+    String costo;
+    String ganancia;
+    String stock;
+    String foto;
 
-    public producto(String _id, String _rev, String idProducto, String codigo, String descripcion, String marca, String presentacion, String precio, String foto) {
-        this._id = _id;
-        this._rev = _rev;
-        this.idProducto = idProducto;
-        this.codigo = codigo;
+    public producto(String idProducto, String nombre, String descripcion, String marca, String presentacion, String costo, String ganancia, String stock, String foto, String _id, String _rev) {
+        this._id=_id;
+        this._rev= _rev;
+        this.codigoProducto = idProducto;
+        this.nombre = nombre;
         this.descripcion = descripcion;
         this.marca = marca;
         this.presentacion = presentacion;
-        this.precio = precio;
-        this.urlfotoCompleta=foto;
+        this.costo = costo;
+        this.ganancia = ganancia;
+        this.stock = stock;
+        this.foto = foto;
     }
-
-    public String getIdAmigo() {
-        return idProducto;
-    }
-
-    public void setIdProducto(String idProducto) {
-        this.idProducto = idProducto;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getPresentacion() {
-        return presentacion;
-    }
-
-    public void setPresentacion(String presentacion) {
-        this.presentacion = presentacion;
-    }
-
-    public String getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(String precio) {
-        this.precio = precio;
-    }
-
-    public String getFoto() {
-        return urlfotoCompleta;
-    }
-
-    public void setFoto(String foto) {
-        this.urlfotoCompleta = foto;
-    }
-
     public String get_id() {
         return _id;
     }
@@ -93,5 +40,78 @@ public class producto {
     public void set_rev(String _rev) {
         this._rev = _rev;
     }
+
+
+    public String getFoto() {
+        return foto;
     }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getCodigoProducto() {
+        return codigoProducto;
+    }
+
+    public void setIdProducto(String idProducto) {
+        this.codigoProducto = idProducto;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String direccion) {
+        this.descripcion = direccion;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String telefono) {
+        this.marca = telefono;
+    }
+
+    public String getPresentacion() {
+        return presentacion;
+    }
+
+    public void setPresentacion(String email) {
+        this.presentacion = email;
+    }
+
+    public String getCosto() {
+        return costo;
+    }
+
+    public void setCosto(String dui) {
+        this.costo = dui;
+    }
+
+    public String getGanancia() {
+        return ganancia;
+    }
+
+    public void setGanancia(String ganancia) {
+        this.ganancia = ganancia;
+    }
+
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
+    }
+}
 

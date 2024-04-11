@@ -19,6 +19,4 @@ public class DetectarInternet {
         }
         return false;
     }
-
-
 }
