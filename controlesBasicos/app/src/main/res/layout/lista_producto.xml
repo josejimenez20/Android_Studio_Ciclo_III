@@ -10,12 +10,15 @@
         android:id="@+id/txtBuscarProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Buscar productos" />
+        android:hint="Buscar productos"
+        android:animation="@anim/slide_in_left" />
+
     <ListView
         android:id="@+id/ltsProducto"
         android:layout_marginTop="40dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:animation="@anim/slide_in_right" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAbrirNuevosProductos"
@@ -27,7 +30,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:src="@android:drawable/ic_input_add" />
+        android:src="@android:drawable/ic_input_add"
+        android:animation="@anim/fade_in" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnSincronizarDatosProductos"
@@ -39,5 +43,6 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="80dp"
-        android:src="@android:drawable/stat_notify_sync"/>
+        android:src="@android:drawable/stat_notify_sync"
+        android:animation="@anim/fade_in" />
 </RelativeLayout>

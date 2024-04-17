@@ -13,6 +13,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONObject;
 
@@ -29,7 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-    TextView tempVal;
+    TextInputLayout tempVal;
     Button btn;
     FloatingActionButton btnRegresar;
     String accion="nuevo", id="", urlfotoCompleta="", rev="", idProducto="";
@@ -73,20 +75,37 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    tempVal = findViewById(R.id.txtcodigo);
-                    String codigo = tempVal.getText().toString();
+                    // Declaración de las variables dentro del método onClick
+                    TextInputLayout textInputLayout;
+                    EditText editText;
 
-                    tempVal = findViewById(R.id.txtdescripcion);
-                    String descripcion = tempVal.getText().toString();
+                    // Para el campo 'txtcodigo'
+                    textInputLayout = findViewById(R.id.txtcodigo);
+                    editText = textInputLayout.getEditText();
+                    String codigo = editText.getText().toString();
 
-                    tempVal = findViewById(R.id.txtmarca);
-                    String marca = tempVal.getText().toString();
+                    // Para el campo 'txtdescripcion'
+                    textInputLayout = findViewById(R.id.txtdescripcion);
+                    editText = textInputLayout.getEditText();
+                    String descripcion = editText.getText().toString();
 
-                    tempVal = findViewById(R.id.txtpresentacion);
-                    String presentacion = tempVal.getText().toString();
+                    // Para el campo 'txtmarca'
+                    textInputLayout = findViewById(R.id.txtmarca);
+                    editText = textInputLayout.getEditText();
+                    String marca = editText.getText().toString();
 
-                    tempVal = findViewById(R.id.txtprecio);
-                    String precio = tempVal.getText().toString();
+                    // Para el campo 'txtpresentacion'
+                    textInputLayout = findViewById(R.id.txtpresentacion);
+                    editText = textInputLayout.getEditText();
+                    String presentacion = editText.getText().toString();
+
+                    // Para el campo 'txtprecio'
+                    textInputLayout = findViewById(R.id.txtprecio);
+                    editText = textInputLayout.getEditText();
+                    String precio = editText.getText().toString();
+
+
+
 
                     JSONObject datosProductos = new JSONObject();
                     if ( accion.equals("modificar") && id.length()>0 && rev.length()>0){
@@ -207,20 +226,31 @@ public class MainActivity extends AppCompatActivity {
                 rev = jsonObject.getString("_rev");
                 idProducto = jsonObject.getString("idProducto");
 
+                // Para el campo 'txtcodigo'
                 tempVal = findViewById(R.id.txtcodigo);
-                tempVal.setText(jsonObject.getString("codigo"));
+                EditText editTextCodigo = tempVal.getEditText();
+                editTextCodigo.setText(jsonObject.getString("codigo"));
 
+                // Para el campo 'txtdescripcion'
                 tempVal = findViewById(R.id.txtdescripcion);
-                tempVal.setText(jsonObject.getString("descripcion"));
+                EditText editTextDescripcion = tempVal.getEditText();
+                editTextDescripcion.setText(jsonObject.getString("descripcion"));
 
+                // Para el campo 'txtmarca'
                 tempVal = findViewById(R.id.txtmarca);
-                tempVal.setText(jsonObject.getString("marca"));
+                EditText editTextMarca = tempVal.getEditText();
+                editTextMarca.setText(jsonObject.getString("marca"));
 
+                // Para el campo 'txtpresentacion'
                 tempVal = findViewById(R.id.txtpresentacion);
-                tempVal.setText(jsonObject.getString("presentacion"));
+                EditText editTextPresentacion = tempVal.getEditText();
+                editTextPresentacion.setText(jsonObject.getString("presentacion"));
 
+                // Para el campo 'txtprecio'
                 tempVal = findViewById(R.id.txtprecio);
-                tempVal.setText(jsonObject.getString("precio"));
+                EditText editTextPrecio = tempVal.getEditText();
+                editTextPrecio.setText(jsonObject.getString("precio"));
+
 
                 urlfotoCompleta = jsonObject.getString("urlfotoCompleta");
                 Bitmap bitmap = BitmapFactory.decodeFile(urlfotoCompleta);

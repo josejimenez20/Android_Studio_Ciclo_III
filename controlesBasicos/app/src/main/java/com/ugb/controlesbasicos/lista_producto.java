@@ -150,7 +150,7 @@ public class lista_producto extends AppCompatActivity {
                     abrirActividad(parametros);
                     break;
                 case R.id.mnxEliminar:
-                    eliminarProductos();
+                    eliminarProducto();
                     break;
             }
             return true;
@@ -159,27 +159,31 @@ public class lista_producto extends AppCompatActivity {
             return super.onContextItemSelected(item);
         }
     }
-    private void eliminarProductos(){
+    private void eliminarProducto(){
         try {
+
             AlertDialog.Builder confirmacion = new AlertDialog.Builder(lista_producto.this);
             confirmacion.setTitle("Esta seguro de Eliminar a: ");
+
             confirmacion.setMessage(datosJSON.getJSONObject(posicion).getJSONObject("value").getString("codigo"));
+
             confirmacion.setPositiveButton("SI", new DialogInterface.OnClickListener() {
+
                 @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
+                public void onClick(DialogInterface dialog, int i) {
                     try {
-                        String respuesta = db_producto.administrar_Productos("eliminar", new String[]{"", "", datosJSON.getJSONObject(posicion).getJSONObject("value").getString("idProducto")});
-                        if (respuesta.equals("ok")) {
-                            mostrarMsg("producto eliminado con exito.");
+                        String respuesta = db_producto.administrar_Productos("eliminar", new String[]{datosJSON.getJSONObject(posicion).getJSONObject("value").getString("idProducto")});
+
+                        if (respuesta.equals("ok")){
+                            mostrarMsg("Producto eliminado con exito.");
                             obtenerProductos();
-                        } else {
-                            mostrarMsg("Error al eliminar producto: " + respuesta);
                         }
-                    }catch (Exception e){
-                        mostrarMsg("Error al eliminar Datos: "+e.getMessage());
-                    }
+                        else
+                            mostrarMsg("Error al eliminar producto: "+respuesta);
+                    }catch (Exception e){mostrarMsg("Error al eliminar datos: "+e.getMessage());}
                 }
             });
+
             confirmacion.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -269,5 +273,8 @@ public class lista_producto extends AppCompatActivity {
 
             }
         });
+    }
+
+    private class MainActivity {
     }
 }

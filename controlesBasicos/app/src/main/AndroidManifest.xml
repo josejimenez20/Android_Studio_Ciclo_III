@@ -12,8 +12,8 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/jkiendaicon"
-        android:label="Inventario de Productos"
+        android:icon="@drawable/sentra"
+        android:label="NISSAN IMPORTADORA SV"
         android:supportsRtl="true"
         android:theme="@style/Theme.ControlesBasicos"
         tools:targetApi="31">

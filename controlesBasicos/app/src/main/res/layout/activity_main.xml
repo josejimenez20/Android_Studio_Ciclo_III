@@ -6,100 +6,122 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/txtcodigo"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginRight="10dp"
-        android:hint="Codigo"
-        android:inputType="text"
-        android:textAlignment="viewStart"
-        android:textAllCaps="false" />
+        android:layout_height="match_parent"
+        android:background="#F5F5F5">
 
-    <EditText
-        android:id="@+id/txtdescripcion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtcodigo"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginRight="10dp"
-        android:hint="Descripcion"
-        android:inputType="text"
-        android:textAllCaps="false" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-    <EditText
-        android:id="@+id/txtmarca"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtdescripcion"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="10dp"
-        android:hint="Marca"
-        android:inputType="text"
-        android:textAllCaps="false" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtcodigo"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Marca"
+                app:boxStrokeColor="@color/colorAccent"
+                app:hintTextColor="@color/colorAccent">
 
-    <EditText
-        android:id="@+id/txtpresentacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtmarca"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginRight="10dp"
-        android:hint="Presentacion"
-        android:inputType="text"
-        android:textAllCaps="false" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/txtprecio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtpresentacion"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginRight="10dp"
-        android:hint="Precio"
-        android:textAllCaps="false" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtdescripcion"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Conbustion"
+                app:boxStrokeColor="@color/colorAccent"
+                app:hintTextColor="@color/colorAccent">
 
-    <Button
-        android:id="@+id/btnGuardarProducto"
-        android:layout_width="264dp"
-        android:layout_height="65dp"
-        android:layout_below="@id/txtprecio"
-        android:layout_margin="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="Guardar producto"
-        android:textAlignment="center" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnRegresarListaProducto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:src="@android:drawable/ic_menu_revert" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtmarca"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Motor"
+                app:boxStrokeColor="@color/colorAccent"
+                app:hintTextColor="@color/colorAccent">
 
-    <ImageView
-        android:id="@+id/imgFoto"
-        android:layout_width="165dp"
-        android:layout_height="168dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/rounded_image_background"
-        android:scaleType="centerCrop"
-        />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtpresentacion"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Chasis"
+                app:boxStrokeColor="@color/colorAccent"
+                app:hintTextColor="@color/colorAccent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtprecio"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="VIN"
+                app:boxStrokeColor="@color/colorAccent"
+                app:hintTextColor="@color/colorAccent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPhonetic" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGuardarProducto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Guardar vehiculo"
+                android:textAlignment="center"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@android:color/white" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnRegresarListaProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginTop="32dp"
+                android:src="@android:drawable/ic_menu_revert"
+                app:backgroundTint="@color/colorAccent" />
+
+            <ImageView
+                android:id="@+id/imgFoto"
+                android:layout_width="165dp"
+                android:layout_height="168dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/rounded_image_background"
+                android:scaleType="centerCrop"
+                android:elevation="8dp" />
+        </LinearLayout>
+    </ScrollView>
 
 
 </RelativeLayout>

@@ -8,10 +8,11 @@ android {
 
     defaultConfig {
         applicationId "com.ugb.controlesbasicos"
-        minSdk 26
+        minSdk 22
         targetSdk 34
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

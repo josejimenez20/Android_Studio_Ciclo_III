@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DB extends SQLiteOpenHelper {
-    private static final String dbname = "db_Productos";
+    private static final String dbname = "db_productos";
     private static final int v=1;
     private static final String SQldb = "CREATE TABLE Productos( idProducto txt,codigo text, descripcion text, marca text, presentacion text, precio text,foto text,id text,rev text)";
     public DB(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -60,8 +60,6 @@ public class DB extends SQLiteOpenHelper {
                     this.getWritableDatabase().update(miTabla,valoresProducto,whereClause,whereArgs);
                     break;
                 case "eliminar":
-
-
                     this.getWritableDatabase().delete(miTabla,whereClause,whereArgs);
                     //db.execSQL("DELETE FROM Productos WHERE idProducto= ''"+datos[2]+"'");
                     break;
@@ -73,8 +71,9 @@ public class DB extends SQLiteOpenHelper {
     }
     public Cursor consultar_Productos(){
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM Productos ORDER BY nombre", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM Productos ORDER BY codigo", null);
         return cursor;
 
     }
 }
+

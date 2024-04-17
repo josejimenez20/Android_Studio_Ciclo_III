@@ -1,3 +1,5 @@
+import org.gradle.internal.impldep.org.h2.engine.Database
+
 plugins {
     id("com.android.application")
 }
@@ -8,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.ugb.controlesbasicos"
-        minSdk = 22
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
